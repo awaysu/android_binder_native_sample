@@ -7,25 +7,25 @@
 #include <binder/IServiceManager.h>
 #include <binder/Parcel.h>
 #include <binder/TextOutput.h>
-#include "../ArcPlayerInterface/ArcPlayerInterface.h"
+#include "../ArcHmbPlayerInterface/ArcHmbPlayerInterface.h"
 
 using namespace android;
 
 /**
  * The proxy used for client side.
  */
-class ArcPlayerBinderProxy : public ArcPlayerInterface {
+class ArcHmbPlayerBinderProxy : public ArcHmbPlayerInterface {
 private:
     sp<IBinder> remote;
 public:
-    ArcPlayerBinderProxy(const sp<IBinder>& impl);
+    ArcHmbPlayerBinderProxy(const sp<IBinder>& impl);
 
     void print(const char *msg);
 
     int32_t add(int32_t a, int32_t b);
 };
 
-static sp<ArcPlayerInterface> getArcPlayerServer(const char *msg) 
+static sp<ArcHmbPlayerInterface> getArcHmbPlayerServer(const char *msg) 
 {
     sp<IServiceManager> sm = defaultServiceManager();
     sp<IBinder> binder = sm->getService(String16(msg));
@@ -33,7 +33,7 @@ static sp<ArcPlayerInterface> getArcPlayerServer(const char *msg)
         ALOGE("Cannot find server '%s'", msg);
         return NULL;
     }
-    sp<ArcPlayerInterface> svr = new ArcPlayerBinderProxy(binder);
+    sp<ArcHmbPlayerInterface> svr = new ArcHmbPlayerBinderProxy(binder);
     return svr;
 }
 

@@ -6,14 +6,14 @@
 #include <binder/IServiceManager.h>
 #include <utils/Log.h>
 #include <binder/TextOutput.h>
-#include "../ArcPlayerInterface/ArcPlayerInterface.h"
+#include "../ArcHmbPlayerInterface/ArcHmbPlayerInterface.h"
 
 using namespace android;
 
 /**
  * The remote binder or the server.
  */
-class ArcPlayerBinder : public BBinder {
+class ArcHmbPlayerBinder : public BBinder {
 protected:
     virtual status_t onTransact(uint32_t code, const Parcel& data, Parcel* reply, uint32_t flags = 0);
 public:

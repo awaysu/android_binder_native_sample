@@ -20,7 +20,7 @@ using namespace android;
  *
  * RefBase is the base class for smart pointer.
  */
-class ArcPlayerInterface : public RefBase {
+class ArcHmbPlayerInterface : public RefBase {
 public:
     enum {
         PRINT = IBinder::FIRST_CALL_TRANSACTION,
@@ -33,9 +33,9 @@ public:
 
     static const String16 DESCRIPTOR;
 
-    ArcPlayerInterface();
+    ArcHmbPlayerInterface();
 
-    virtual ~ArcPlayerInterface();
+    virtual ~ArcHmbPlayerInterface();
 };
 
 #endif

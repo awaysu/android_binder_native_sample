@@ -1,14 +1,17 @@
-#include "ArcPlayerBinderProxy.h"
+#include "ArcHmbPlayerBinderProxy.h"
 
 #define LOG_TAG "ARCADYAN:Client"
 
 int main(int argc, char **argv) 
 {
+	ALOGE("built : [%s %s]\n", __DATE__, __TIME__);
+	
+	
     ALOGE("we are the client");
-    const char *native = "ArcPlayerServer";
+    const char *native = "ArcHmbPlayerServer";
 	
 	ALOGE("======================================");
-    sp<ArcPlayerInterface> svc = getArcPlayerServer(native);
+    sp<ArcHmbPlayerInterface> svc = getArcHmbPlayerServer(native);
     if (svc == NULL) {
         ALOGE("failed to find service");
         return -1;
